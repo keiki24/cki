@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<section>
+  <ol class="articles">
+    {% for article in articles %}
+      <li>
+        <time datetime="{{ article.date }}">{{ article.japanese_date }}</time>
+        <a href="/articles/{{ article.id }}">{{ article.title }}</a>
+      </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endblock content %}
