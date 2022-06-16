@@ -1,0 +1,10 @@
+name: build
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  build:
+    uses: keiki24/workflows/.github/workflows/rust-release-binaries.yml
