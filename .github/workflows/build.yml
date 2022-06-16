@@ -7,4 +7,4 @@ on:
 
 jobs:
   build:
-    uses: keiki24/workflows/.github/workflows/rust-release-binaries.yml
+    uses: keiki24/workflows/.github/workflows/rust-release-binaries.yml@main
