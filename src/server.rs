@@ -8,7 +8,7 @@ pub fn run() -> Result<actix_web::dev::Server> {
         App::new()
             .route("/", get().to(show_top_page))
             .route("/articles/{article_id}", get().to(show_article))
-            .service(Files::new("/", "/static").show_files_listing())
+            .service(Files::new("/", "./static").show_files_listing())
     })
     .bind("127.0.0.1:8080")?
     .run();
