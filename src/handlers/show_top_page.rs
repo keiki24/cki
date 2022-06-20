@@ -21,6 +21,7 @@ struct ShowTopPageTemplate<'a> {
     image_url: Option<&'a str>,
     og_type: &'a str,
     title: &'a str,
+    request_host: &'a str,
 }
 
 fn render(articles: impl Iterator<Item = Article>) -> Result<String, askama::Error> {
@@ -31,6 +32,7 @@ fn render(articles: impl Iterator<Item = Article>) -> Result<String, askama::Err
         image_url: None, 
         og_type: "website",
         title: "cki.com",
+        request_host: "keiki24.github.io",
     };
     template.render()
 }

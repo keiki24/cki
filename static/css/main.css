@@ -3,15 +3,38 @@ html {
 }
 
 body {
-    background-color: #f8f5f2;
+    background-color: #e9f1f9;
     line-height: 1.8;
     word-wrap: break-word;
 }
 
-header nav {
+header nav p {
     text-align: center;
     font-size: 1.2em;
     font-weight: bolder;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #4977a2;
+}
+
+.menu li a {
+    display:block;
+    width:5em;
+    line-height:5em;
+    text-align:center;
+    color: #f5f7fb;
+    background: #4977a2;
+    font-size: 1.2em;
+    font-weight: bolder;
+    position: relative;
 }
 
 /* トップページ */
@@ -23,6 +46,7 @@ header nav {
 }
 
 .articles ol {
+    width: 50%;
     margin: 0;
     padding: 0;
 }
@@ -51,9 +75,11 @@ header nav {
 /* 記事のページ */
 article {
     width: 50%;
+    background-color: #ffff;
     margin-top: 2.5em;
     margin-left: auto;
     margin-right: auto;
+    padding: 1.0em 2.0em 1.0em 2.0em;
 }
 
 article h2 {
@@ -65,8 +91,9 @@ article h2 {
 
 article p {
     font-size: 1.1em;
-    color: #222525;
+    color: #111212;
     text-align: left;
+    margin: 0.5em 0 0.5em 0;
 }
 
 .article-header {

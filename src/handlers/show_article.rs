@@ -18,6 +18,7 @@ struct ShowArticleTemplate<'a> {
     image_url: Option<&'a str>,
     og_type: &'a str,
     title: &'a str,    
+    request_host: &'a str,
 }
 
 fn render(article: Article) -> Result<String, askama::Error> {
@@ -29,6 +30,7 @@ fn render(article: Article) -> Result<String, askama::Error> {
         image_url: None,
         og_type: "article",
         title: &article.title,
+        request_host: "keiki24.github.io",
     };
     template.render()
 }
