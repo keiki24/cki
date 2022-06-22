@@ -28,7 +28,7 @@ fn render(articles: impl Iterator<Item = Article>) -> Result<String, askama::Err
     let article_decorators: Vec<ArticleDecorator> = articles.map(|article| article.into()).collect();
     let template = ShowTopPageTemplate {
         articles: article_decorators,
-        canonical_url: "https:localhost/",
+        canonical_url: "https://keiki24.github.io/",
         image_url: None, 
         og_type: "website",
         title: "cki.com",
