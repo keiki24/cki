@@ -11,6 +11,7 @@ pub struct Article {
     pub slug: Option<String>,
     pub html_body: String,
     pub title: String,
+    pub summary: Option<String>,
 }
 
 impl Article {
@@ -34,6 +35,7 @@ impl Article {
             slug: metadata.slug,
             html_body: data.html_body,
             title: data.title,
+            summary: data.summary,
         })
     }
 
