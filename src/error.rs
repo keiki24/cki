@@ -1,7 +1,7 @@
 #[derive(Debug)]
 pub enum Error {
     ActixPayload(actix_web::error::PayloadError),
-    ActixRequest(actix_web::client::SendRequestError),
+    ActixRequest(awc::error::SendRequestError),
     Frontmatter(crate::frontmatter::Error),
     Io(std::io::Error),
     SerdeYaml(serde_yaml::Error),
@@ -14,8 +14,8 @@ impl From<actix_web::error::PayloadError> for Error {
     }
 }
 
-impl From<actix_web::client::SendRequestError> for Error {
-    fn from(error: actix_web::client::SendRequestError) -> Self {
+impl From<awc::error::SendRequestError> for Error {
+    fn from(error: awc::error::SendRequestError) -> Self {
         Error::ActixRequest(error)
     }
 }

@@ -1,5 +1,5 @@
 use crate::result::Result;
-use actix_web::client::Client as ActixClient;
+use awc::Client as ActixClient;
 
 pub struct Client {
     actix_client: ActixClient,
