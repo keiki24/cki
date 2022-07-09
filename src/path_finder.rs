@@ -19,7 +19,7 @@ fn asset_paths() -> impl Iterator<Item = String> {
 }
 
 fn other_paths() -> impl Iterator<Item = String> {
-    ["/"]
+    ["/", "/feed.xml"]
     .iter()
     .map(|&element| element.into())
 }
