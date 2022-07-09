@@ -6,7 +6,10 @@ use std::{path::Path, fs};
 
 
 pub async fn build() -> Result<()> {
-    let _ = run()?;
+    let handle = actix_rt::spawn(async {
+        let _ = run().expect("Failed to run server.").await;
+    });
+
     let client = Client::new();
     for path in path_finder::all() {
         println!("{}", path);
@@ -22,5 +25,7 @@ pub async fn build() -> Result<()> {
             let _ = fs::write(output_path, bytes);
         }
     }
+
+    let _ = handle.abort();
     Ok(())
 }
