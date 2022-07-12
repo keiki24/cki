@@ -27,7 +27,7 @@ fn render(article: Article) -> Result<String, askama::Error> {
     let template = ShowArticleTemplate {
         article: &article,
         canonical_url: &canonical_url,
-        image_url: None,
+        image_url: article.image_url.as_deref(),
         og_type: "article",
         title: &article.title,
         request_host: "keiki24.github.io",

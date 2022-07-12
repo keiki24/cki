@@ -1,7 +1,7 @@
 use crate::frontmatter;
 use crate::result::Result;
-use pulldown_cmark::{Options, Parser, html};
-use scraper::{Selector, Html};
+use pulldown_cmark::{html, Options, Parser};
+use scraper::{Html, Selector};
 use serde::Deserialize;
 
 pub fn parse(content: &str) -> Result<Data> {
@@ -13,8 +13,10 @@ pub fn parse(content: &str) -> Result<Data> {
         result.headers.title
     };
     let summary = extract_summary(&html_body);
+    let image_url = extract_image_url(&html_body);
     Ok(Data {
         html_body,
+        image_url,
         summary,
         title,
     })
@@ -24,6 +26,7 @@ pub fn parse(content: &str) -> Result<Data> {
 pub struct Data {
     pub title: String,
     pub html_body: String,
+    pub image_url: Option<String>,
     pub summary: Option<String>,
 }
 
@@ -61,4 +64,13 @@ fn extract_summary(html: &str) -> Option<String> {
         }
     }
     None
+}
+
+fn extract_image_url(html: &str) -> Option<String> {
+    let fragment = Html::parse_fragment(html);
+    let selector = Selector::parse("img[src]").unwrap();
+    fragment
+        .select(&selector)
+        .next()
+        .map(|element| element.value().attr("src").unwrap().to_string())
 }

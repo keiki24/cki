@@ -10,6 +10,7 @@ pub struct Article {
     pub date: NaiveDate,
     pub slug: Option<String>,
     pub html_body: String,
+    pub image_url: Option<String>,
     pub title: String,
     pub summary: Option<String>,
 }
@@ -34,6 +35,7 @@ impl Article {
             date: metadata.date,
             slug: metadata.slug,
             html_body: data.html_body,
+            image_url: data.image_url,
             title: data.title,
             summary: data.summary,
         })

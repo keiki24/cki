@@ -10,6 +10,7 @@ pub struct ArticleDecorator {
     pub published_at_in_rfc2822: String,
     pub id: String,
     pub html_body: String,
+    pub image_url: Option<String>,
     pub summary: Option<String>,
     pub title: String,
 }
@@ -24,6 +25,7 @@ impl From<Article> for ArticleDecorator {
             published_at_in_rfc2822: format_date_to_rfc2822(&article.date),
             summary: article.summary,
             html_body: article.html_body,
+            image_url: article.image_url,
             title: article.title,
         }
     }
